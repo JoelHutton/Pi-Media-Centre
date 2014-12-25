@@ -1,0 +1,20 @@
+screenDown	r,screenPower,1	lock,screenPower	r,screenDirection,1	lock,screenDirection	t,18	unlock,screenPower	unlock,screenDirection	r,screenPower,0	r,screenDirection,0
+screenUp	r,screenPower,1	r,screenDirection,0	lock,screenPower	lock,screenDirection	ir,projectorToggle	t,1	ir,projectorToggle	t,20	r,screenPower,0	unlock,screenPower
+switchToTv	r,tv,1	r,screenPower,1	r,25,1	t,20	r,18,0
+sky	r,tv,1	r,amp,1	r,sky,1	ir,sonyavOn	ir,samsungtvOn	ir,sonyavSat	ir,skyhdOn	t,4	ir,sonyavSat	t,120	ir,skyhdOn
+ps3	r,4,1	r,17,1	r,25,1	r,9,1	ir,sonyavBd	ir,samsungtvHdmi1
+skyhdOff	ir,skyhdOn	t,10	ir,skyhdToggle
+computer	r,17,1	r,25,1	r,9,1	r,22,1	ir,sonyavVideo1
+spareHdmi	ir,sonyavDvd
+radio
+ipodDock	ir,sonyavDmport	ir,sonyavGui
+auxillaryMusic	ir,sonyavMdtape
+allOff	r,4,0	ir,skyhdOn	r,tv,off	r,numberButton0,0	r,23,0	r,24,0	r,25,0	r,22,0	r,8,0	r,7,0	r,9,0	r,11,0	t,10	ir,skyhdToggle	
+volup5	loop,5	ir,sonyavVolup	
+voldown5	loop,5	ir,sonyavVoldown	
+volup10	loop,10	ir,sonyavVolup	
+voldown10	loop,10	ir,sonyavVoldown	
+volup20	loop,20	ir,sonyavVolup	
+voldown20	loop,20	ir,sonyavVoldown	
+volup50	loop,50	ir,sonyavVolup	
+voldown50	loop,50	ir,sonyavVoldown	

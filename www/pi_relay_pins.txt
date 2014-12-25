@@ -1,0 +1,55 @@
+pin 4:  switch 4 ps3
+pin CE1/7: fireplace spare
+pin CE0/8: switch 8
+pin MISO/9: switch 1 Amp
+pin MOSI/10: switch 2 sky
+pin SCLK/11: switch 7
+pin 17: switch 5 sub
+pin 18: screen power
+pin 22: switch 3 comp
+pin 23: switch 6
+pin 24: screen direction
+pin 25: tv power
+
+
+Wires going to fireplace.
+
+brown   5v
+blue    ground
+green/wh    CE0
+green   SCLK
+Orange/wh   MISO
+Orange  CE1
+
+Projector motor.
+black is up
+brown is down
+
+when exporting pins us GPIO. When using 'gpio write [pin] [binary_value]' use wiringPi
+When using wiringpi in python use GPIO numbering(second column)
++----------+------+--------+------+-------+
+| wiringPi | GPIO | Name   | Mode | Value |
++----------+------+--------+------+-------+
+|      0   |  17  | GPIO 0 | IN   | High  |
+|      1   |  18  | GPIO 1 | IN   | High  |
+|      2   |  27  | GPIO 2 | OUT  | Low   |
+|      3   |  22  | GPIO 3 | IN   | High  |
+|      4   |  23  | GPIO 4 | IN   | High  |
+|      5   |  24  | GPIO 5 | IN   | High  |
+|      6   |  25  | GPIO 6 | IN   | High  |
+|      7   |   4  | GPIO 7 | OUT  | Low   |
+|      8   |   2  | SDA    | ALT0 | High  |
+|      9   |   3  | SCL    | ALT0 | High  |
+|     10   |   8  | CE0    | IN   | Low   |
+|     11   |   7  | CE1    | IN   | High  |
+|     12   |  10  | MOSI   | IN   | High  |
+|     13   |   9  | MISO   | IN   | High  |
+|     14   |  11  | SCLK   | IN   | High  |
+|     15   |  14  | TxD    | ALT0 | High  |
+|     16   |  15  | RxD    | ALT0 | High  |
+|     17   |  28  | GPIO 8 | IN   | Low   |
+|     18   |  29  | GPIO 9 | IN   | Low   |
+|     19   |  30  | GPIO10 | IN   | Low   |
+|     20   |  31  | GPIO11 | IN   | Low   |
++----------+------+--------+------+-------+
+

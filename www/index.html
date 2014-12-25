@@ -1,0 +1,130 @@
+<html>
+	<head>
+		<title>Khyber Media Control</title>
+		<link rel="stylesheet" type="text/css" href="media.css" id="media.css" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+		<script language="javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="media.js"></script>
+		</head>
+	<body>
+		<div id="wrapper">
+		
+			<div id="topButtons" class="buttonContainer">
+				<div class="roundedButton topRoundedButton" id="on" value="On/Device" onclick="selectDevice('show');"><p>On/Device</p></div>
+				<div class="roundedButton topRoundedButton" id="screen" value="Screen" onclick="selectScreen('show');"><p>Screen</p></div>
+                                <div class="roundedButton topRoundedButton" id="off" value="Off" onclick="sendCommand('{commandType: \'macro\', macroName: \'allOff\'}')"><p>Off</p></div>
+				<div class="roundedButton topRoundedButton" id="screenUp" value="Projector On/Off" onclick="sendCommand('{commandType: \'macro\', macroName : \'screenUp\'}')"><p>Projector Off</p></div>
+				<a href="help.txt">
+					<div class="roundedButton topRoundedButton" id="help" value="Help"><p>Help</p></div>
+				</a>
+			</div>
+			<div></div>
+			<div id="dropdownDevice" class="dropdownContainer"><h1>Select Source</h1>
+				<div class="dropdown"><h1></h1></div>
+				<div class="dropdown"onclick="sendCommand('{commandType: \'macro\', macroName : \'sky\'}');selectDevice('hide');"><h1>Sky</h1></div>
+				<div class="dropdown"onclick="sendCommand('{commandType: \'macro\', macroName : \'ps3\'}');selectDevice('hide');"><h1>PS3</h1></div>
+				<div class="dropdown"onclick="sendCommand('{commandType: \'macro\', macroName : \'computer\'}');selectDevice('hide');"><h1>Computer</h1></div>
+				<div class="dropdown"onclick="sendCommand('{commandType: \'macro\', macroName : \'ipodDock\'}');selectDevice('hide');"><h1>Ipod Dock</h1></div>
+				<div class="dropdown"onclick="sendCommand('{commandType: \'macro\', macroName : \'auxillaryMusic\'}');selectDevice('hide');"><h1>Auxillary Music</h1></div>
+				<div class="dropdown"onclick="sendCommand('{commandType: \'macro\', macroName : \'spareHdmi\'}');selectDevice('hide');"><h1>Spare HDMI</h1></div>
+				<div class="dropdown"onclick="selectDevice('hide');"><h1>Cancel</h1></div>
+			</div>
+			<div id="dropdownScreen" class="dropdownContainer"><h1>Select Screen</h1>
+				<div class="dropdown"onclick="sendCommand('{commandType: \'macro\', macroName : \'switchToTv\'}');selectScreen('hide');"><h1>TV</h1></div>
+				<div class="dropdown"onclick="sendCommand('{commandType: \'macro\', macroName : \'screenDown\'}');selectScreen('hide');"><h1>Projector</h1></div>
+				<div class="dropdown"onclick="selectScreen('hide');"><h1>Cancel</h1></div>
+			</div>
+			<div id="volumeDirectionContainer">
+				<div id="volume" class="buttonContainer">
+					<input type="button" id="sonyavVolupup" class="volume roundedButton" value="Vol++" onclick="sendCommand('{commandType: \'macro\', macroName : \'volup20\'}')"			/><br/>
+					<input type="button" id="sonyavVolup" class="volume roundedButton" value="Vol+" onclick="sendCommand('{commandType: \'macro\', macroName : \'volup10\'}')"			/><br/>
+                                        <input type="button" id="sonyavMute" class="volume roundedButton" value="mute" onclick="sendCommand('commandType: \'ir\',codeName: \'sonyavMute\'}')"			/><br/>			
+					<input type="button" id="sonyavVoldown" class="volume roundedButton" value="Vol-" onclick="sendCommand('{commandType: \'macro\', macroName : \'voldown10\'}')"			/><br/>
+					<input type="button" id="sonyavVoldowndown" class="volume roundedButton" value="Vol--" onclick="sendCommand('{commandType: \'macro\', macroName : \'voldown20\'}')"		/>
+				</div>
+				<div id="directionButtonsSky" class="buttonContainer">
+					<div class="buttonRow"><input type="button" class="directionButton" style="margin-left:30%;" value ="^^" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdChanup\'}')"/><br/></div>
+					<div class="buttonRow"><input type="button" class="directionButton" style="margin-left:30%;" value ="^" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdUp\'}')"/><br/></div>
+                                        <div class="buttonRow"><input type="button" class="directionButton" value="<" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdLeft\'}')"/><input type="button" id="selectButton" class="directionButton" value="O" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdMiddle\'}')"/><input type="button" class="directionButton" value=">" onclick="sendCommand('{codeName: \'skyhdRight\', commandType: \'ir\'}')"/><br/></div>
+					<div class="buttonRow"><input type="button" class="directionButton" style="margin-left:30%;" value="v" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdDown\'}')"/><br/></div>
+					<div class="buttonRow"><input type="button" class="directionButton" style="margin-left:30%;" value="vv" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdChandown\'}')"/><br/></div>
+				</div>
+				<div id="directionButtonsAmp" class="buttonContainer">
+					<div class="buttonRow"><input type="button" class="directionButton" style="margin-left:30%;" value ="^" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavUp\'}')"/><br/></div>
+					<div class="buttonRow"><input type="button" class="directionButton" value="<" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavLeft\'}')"/><input type="button" id="selectButton" class="directionButton" value="O" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavMiddle\'}')"/><input type="button" class="directionButton" value=">" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavRight\'}')"/><br/></div>
+					<div class="buttonRow"><input type="button" class="directionButton" style="margin-left:30%;" value="v" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavDown\'}')"/><br/></div>
+				</div>
+			</div>
+			<div class="buttonContainer" id="navDiv"><input type="button" id="skyBack" class="middleButton roundedButton" value="Backup" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdBack\'}')"/><input type="button" id="skyGuide" value="TV Guide"class="middleButton roundedButton" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdGuide\'}')"/></div><br/>
+			<div id="skyTimeButtons" class="buttonContainer sky">
+				<input type="button" id="skyRewind" class="middleButton roundedButton" value="<<" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdRewind\'}')"			/>
+				<input type="button" id="skyStop" class="middleButton roundedButton" value="[]" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdStop\'}')"			/>
+				<input type="button" id="skyPause" class="middleButton roundedButton" value="II" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdPause\'}')"			/>
+				<input type="button" id="skyPlay" class="middleButton roundedButton" value=">" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdPlay\'}')"			/>
+				<input type="button" id="skyFastforward" class="middleButton roundedButton" value=">>" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdFastforward\'}')"	/><br/>
+				<input type="button" id="skyRecord" class="middleButton roundedButton" value="record" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdRecord\'}')"			/>
+			</div> 
+			<div id="skyColors" class="buttonContainer sky opt"> <h1>Extended Sky Controls</h1>
+				<input type="button" class="roundedButton sky" id="skyRed" style='background:red;color:red;'value="sky red" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdRed\'}')"/>
+				<input type="button" class="roundedButton sky" id="skyGreen" style='background:green;color:green;'value="sky green" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdGreen\'}')"/>
+				<input type="button" class="roundedButton sky" id="skyYellow" style='background:yellow;color:yellow;'value="sky yellow" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdYellow\'}')"/>
+				<input type="button" class="roundedButton sky" id="skyBlue" style='background:blue;color:blue;'value="sky blue" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdBlue\'}')"/>
+				<input type="button" class="roundedButton sky" id="skyInfo" value="info" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdInfo\'}')"/>
+				<input type="button" class="roundedButton sky" id="skyOn" value="on" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhdOn\'}')"/>
+				<input type="button" class="roundedButton sky" id="skyOff" value="off" onclick="sendCommand('{commandType: \'macro\', macroName : \'skyhdOff\'}')"/>
+			</div>
+			<div id="sonyav" class="buttonContainer amp opt">
+				<h1>Amp</h1>
+				<input type="button" class="roundedButton sonyav" id="sonyavVideo1" value="video1" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavVideo1\'}')"/>
+				<input type="button" class="roundedButton sonyav" id="sonyavVideo2" value="video2" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavVideo2\'}')"/>
+				<input type="button" class="roundedButton sonyav" id="sonyavSat" value="sat" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavSat\'}')"/>
+				<input type="button" class="roundedButton sonyav" id="sonyavDvd" value="dvd" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavDvd\'}')"/>
+				<input type="button" class="roundedButton sonyav" id="sonyavBd" value="bd" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavBd\'}')"/>
+				<input type="button" class="roundedButton sonyav" id="sonyavMdTape" value="mdTape" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavMdtape\'}')"/>
+				<input type="button" class="roundedButton sonyav" id="sonyavDmPort" value="dmPort" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavDmport\'}')"/>
+				<input type="button" class="roundedButton sonyav" id="sonyavMultiIn" value="multiIn" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavMultin\'}')"/>
+				<input type="button" class="roundedButton sonyav" id="sonyavGui" value="gui" onclick="sendCommand('{commandType :\'ir\',codeName :\'sonyavGui\'}')"/>
+			</div>
+			<div id="samsung" class="buttonContainer samsung opt">
+				<h1>Samsung TV</h1>
+				<input type="button" class="roundedButton samsung"  value="hdmi1" onclick="sendCommand('{commandType :\'ir\',codeName :\'samsungtvHdmi1\'}')"/>
+			</div>
+			<div id="projector" class="buttonContainer projector opt">
+				<h1>Projector</h1>				
+				<input type="button" class="roundedButton projector" id="projectorToggle" value="on" onclick="sendCommand('{commandType :\'ir\',codeName :\'projectorToggle\'}')"/>
+			</div>
+			<div id='relayButtonWrapper' class="buttonContainer opt">
+				<h1>Switchboard</h1>
+				<div class="relayButton" id="ampRelay" >Amp</div>
+				<div class="relayButton" id="tvRelay" >TV</div>
+				<div class="relayButton" id="skyRelay" >Sky</div>
+				<div class="relayButton" id="ps3Relay" >PS3</div>
+				<div class="relayButton" id="subRelay" >Subwoofer</div>
+				<div class="relayButton" id="screenPowerRelay" >Screen Motor Power</div>
+				<div class="relayButton" id="screenDirectionRelay" >Screen Motor Direction(down is green)</div>
+				<div class="relayButton" id="compRelay" >Comp</div>
+				<div class="relayButton" id="socket6Relay" >Switch 6</div>
+				<div class="relayButton" id="socket7Relay" >Switch 7</div>
+				<div class="relayButton" id="socket8Relay" >Switch 8</div>
+				<div class="relayButton" id="fireplaceSpareRelay" >Fireplace Spare</div>
+			</div> 
+			<div id="numberButtons" class="buttonContainer">			
+
+
+				<div class="buttonRow" style="padding-top:2%;">
+				<input type="button" class="roundedButton numberButton"  value="1" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhd1\'}')"/>
+				<input type="button" class="roundedButton numberButton" id="button2" value="2" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhd2\'}')"/>
+				<input type="button" class="roundedButton numberButton" id="button3" value="3" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhd3\'}')"/></div><br/><div class="buttonRow">
+				<input type="button" class="roundedButton numberButton" id="button4" value="4" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhd4\'}')"/>
+				<input type="button" class="roundedButton numberButton" id="button5" value="5" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhd5\'}')"/>
+				<input type="button" class="roundedButton numberButton" id="button6" value="6" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhd6\'}')"/></div><br/><div class="buttonRow">
+				<input type="button" class="roundedButton numberButton" id="button7" value="7" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhd7\'}')"/>
+				<input type="button" class="roundedButton numberButton" id="button8" value="8" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhd8\'}')"/>
+				<input type="button" class="roundedButton numberButton" id="button9" value="9" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhd9\'}')"/></div><br/>
+				<div class="buttonRow" id="buttonRow0">
+					<input type="button" class="roundedButton numberButton" id="button0" value="0" onclick="sendCommand('{commandType :\'ir\',codeName :\'skyhd0\'}')"style="width:100%;"/></div>
+			</div>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,20 @@
+3: socket 6, also controlled by top row, third along
+5: ps3, also controlled by second row, fourth along
+8: comp, also controlled by second from top, third along
+10: screen power, controlled by bottom row, first along
+12: sky box, also maps to second down, second along
+13: sub, maps to top row, fourth along
+16: tv, maps to bottom row, third along
+18: socket 8, also maps to top row, first along
+19: amp, maps to second row, first along
+22: number 7, first row, second along
+24: screen direction, third row, second along
+
+switchboard 
+|sock8    |sock 7     |sock 6 |sub    |
+|amp      |sky        |comp   | ps3   |
+|screen P |screen dir |tv     |fps    |
+
+sockets
+|amp      |sky        |comp   |ps3    |
+|sub      |sock 6     |sock 7 |sock 8 |

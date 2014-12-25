@@ -1,0 +1,50 @@
+Starting with raspbian:
+
+Required dependencies:
+	sudo apt-get install apache2 libapache2-mod-wsgi vim vim-gnome python-dev python-setuptools git-core
+
+To make editing easier:
+	scp ~/.vimrc pi@[pi address]:~/ 
+
+edit /etc/sites-available/default add lines to: 
+	<Directory /var/www>:
+        	         Options +ExecCGI
+        	        AddHandler cgi-script .py. 
+
+http://stackoverflow.com/questions/9145517/executing-a-python-script-in-apache2 
+
+Installing wiring-pi:
+https://projects.drogon.net/raspberry-pi/wiringpi/download-and-install
+	sudo apt-get install git-core
+	sudo apt-get update
+	sudo apt-get upgrade
+	cd /tmp
+	git clone git://git.drogon.net/wiringPi
+	cd wiringPi
+	git pull origin
+	./build
+
+Wiringpi-Python:
+https://github.com/WiringPi/WiringPi-Python:
+	cd /tmp
+	sudo apt-get install python-dev python-setuptools 
+	git clone https://github.com/WiringPi/WiringPi-Python.git
+	cd WiringPi-Python
+	git submodule update --init
+	sudo python setup.py install
+
+Test the web server with /var/www/hello_world.py:
+#!/usr/bin/env python
+
+# enable debugging
+	import cgitb
+	cgitb.enable()
+
+	print "Content-Type: text/html\r\n\r\n"
+	print
+
+	print "Hello World!"
+Add the following lines to /etc/init.d/rc.local:
+	sudo -u www-data /var/www/export.sh &
+	/var/www/send_code.py &
+
